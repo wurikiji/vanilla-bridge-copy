@@ -59,7 +59,10 @@ class VanillaDrawer extends StatelessWidget {
           showDialog(context: context, builder: (context) {
             return AlertDialog(
               title: Text("회원 모드로 전환"),
-              content: Text("회원 모드로 전환하시겠습니까?", style: TextStyle(color: Colors.grey)),
+              content: Text(
+                  "회원 모드로 전환하시겠습니까?",
+                  style: TextStyle(color: Colors.grey, fontSize: 12.0),
+              ),
               actions: <Widget>[
                 FlatButton(
                   child: Text("취소", style: TextStyle(color: Colors.deepPurple[400])),
@@ -90,29 +93,28 @@ class VanillaDrawer extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           _buildMenuItem(Icons.description, "주선자 매뉴얼"),
-          SizedBox(height: 16.0),
           _buildMenuItem(Icons.announcement, "소개팅 주선방법"),
-          SizedBox(height: 16.0),
           _buildMenuItem(Icons.person, "문의하기"),
-          SizedBox(height: 16.0),
           _buildMenuItem(Icons.flag, "공지사항"),
-          SizedBox(height: 16.0),
           _buildMenuItem(Icons.insert_comment, "자주묻는 질문"),
         ],
       ),
     );
   }
   Widget _buildMenuItem(IconData icon, String title) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Icon(icon, color: Colors.black54, size: 16.0),
-          SizedBox(width: 8.0),
-          Text(title, style: TextStyle(color: Colors.black54)),
-        ],
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Icon(icon, color: Colors.black54, size: 16.0),
+            SizedBox(width: 8.0),
+            Text(title, style: TextStyle(color: Colors.black54)),
+          ],
+        ),
       ),
     );
   }
@@ -203,6 +205,7 @@ class VanillaDrawer extends StatelessWidget {
                   "지인소개 주선자",
                   style: TextStyle(color: Colors.white, fontSize: 8.0),
                 ),
+                margin: EdgeInsets.only(bottom: 4.0),
               ),
               Text("오기환님", style: TextStyle(fontSize: 12.0)),
               Text("(바닐라브릿지)", style: TextStyle(fontSize: 10.0)),
@@ -223,18 +226,12 @@ class VanillaDrawer extends StatelessWidget {
           flex: 1,
           child: _buildStatusBox("주선성공", "3회"),
         ),
-        VerticalDivider(
-          width: 2,
-          color: Colors.grey,
-        ),
+        VerticalDivider(width: 2, color: Colors.grey),
         Expanded(
           flex: 1,
           child: _buildStatusBox("친구", "2명"),
         ),
-        VerticalDivider(
-          width: 2,
-          color: Colors.grey,
-        ),
+        VerticalDivider(width: 2, color: Colors.grey),
         Expanded(
           flex: 1,
           child: _buildStatusBox("평균응답시간", "측정중"),
