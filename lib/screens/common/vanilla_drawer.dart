@@ -204,30 +204,35 @@ class VanillaDrawer extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          CircleAvatar(
-            radius: width / 10,
-          ),
-          SizedBox(width: 16.0),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                decoration: ShapeDecoration(
-                  color: Colors.orange,
-                  shape: StadiumBorder(),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  "지인소개 주선자",
-                  style: TextStyle(color: Colors.white, fontSize: 8.0),
-                ),
-                margin: EdgeInsets.only(bottom: 4.0),
+              CircleAvatar(
+                radius: width / 10,
               ),
-              Text("바닐라님", style: TextStyle(fontSize: 12.0)),
-              Text("(바닐라브릿지)", style: TextStyle(fontSize: 10.0)),
+              SizedBox(width: 16.0),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                    decoration: ShapeDecoration(
+                      color: Colors.orange,
+                      shape: StadiumBorder(),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "지인소개 주선자",
+                      style: TextStyle(color: Colors.white, fontSize: 8.0),
+                    ),
+                    margin: EdgeInsets.only(bottom: 4.0),
+                  ),
+                  Text("바닐라님", style: TextStyle(fontSize: 12.0)),
+                  Text("(바닐라브릿지)", style: TextStyle(fontSize: 10.0)),
+                ],
+              ),
             ],
           ),
           Expanded(flex: 1, child: Container()),
