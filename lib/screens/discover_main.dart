@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-
-import 'common/vanilla_drawer.dart';
 import 'package:vanilla_bridge_copy/constants/colors.dart';
 
-class DiscoverMain extends StatefulWidget
-{
+import 'common/vanilla_drawer.dart';
+
+class VanillaDiscoverMain extends StatefulWidget {
   @override
-  DiscoverMainState createState() {
-    return new DiscoverMainState();
+  VanillaDiscoverMainState createState() {
+    return new VanillaDiscoverMainState();
   }
 }
 
-class DiscoverMainState extends State<DiscoverMain>
-  with TickerProviderStateMixin<DiscoverMain>{
+class VanillaDiscoverMainState extends State<VanillaDiscoverMain>
+    with TickerProviderStateMixin<VanillaDiscoverMain> {
   TabController _tabController;
 
   @override
@@ -24,31 +23,33 @@ class DiscoverMainState extends State<DiscoverMain>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       drawer: VanillaDrawer(),
       appBar: AppBar(
         brightness: Brightness.light,
         backgroundColor: Colors.white,
         centerTitle: true,
         bottom: PreferredSize(
-            child: TabBar(
-              tabs: <Widget>[
-                Container(
-                  height: 36.0,
-                  child: Center(child: Text("디스커버")),
-                ),
-                Container(
-                  height: 36.0,
-                  child: Center(child: Text("보관함")),
-                ),
-              ],
-              labelColor: VanillaMainColor,
-              unselectedLabelColor: Colors.grey,
-              controller: _tabController,
-            ),
-            preferredSize: Size.fromHeight(32.0),
+          child: TabBar(
+            tabs: <Widget>[
+              Container(
+                height: 36.0,
+                child: Center(child: Text("디스커버")),
+              ),
+              Container(
+                height: 36.0,
+                child: Center(child: Text("보관함")),
+              ),
+            ],
+            labelColor: VanillaMainColor,
+            unselectedLabelColor: Colors.grey,
+            controller: _tabController,
+          ),
+          preferredSize: Size.fromHeight(32.0),
         ),
-        title: Text("주선하기", style: TextStyle(color: Colors.black, fontSize: 16.0)),
+        title: Text(
+          "주선하기",
+          style: TextStyle(color: Colors.black, fontSize: 16.0),
+        ),
         leading: Builder(builder: (context) {
           return IconButton(
             icon: Icon(Icons.menu, color: VanillaMainColor),
@@ -66,8 +67,8 @@ class DiscoverMainState extends State<DiscoverMain>
       ),
       body: TabBarView(
         children: <Widget>[
-          DiscoverView(),
-          HistoryBoxView(),
+          VanillaDiscoverView(),
+          VanillaHistoryBoxView(),
         ],
         controller: _tabController,
       ),
@@ -75,7 +76,7 @@ class DiscoverMainState extends State<DiscoverMain>
   }
 }
 
-class DiscoverView extends StatelessWidget {
+class VanillaDiscoverView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -84,7 +85,8 @@ class DiscoverView extends StatelessWidget {
     );
   }
 }
-class HistoryBoxView extends StatelessWidget {
+
+class VanillaHistoryBoxView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -93,5 +95,3 @@ class HistoryBoxView extends StatelessWidget {
     );
   }
 }
-
-

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vanilla_bridge_copy/screens/discover_main.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'constants/colors.dart';
+import 'screens/discover_main.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,14 +25,74 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.deepPurple,
       ),
-      home: DiscoverMain(),
+      home: AppMain(),
     );
   }
 }
 
-class AppMain extends StatelessWidget {
+class AppMain extends StatefulWidget {
+  @override
+  AppMainState createState() {
+    return new AppMainState();
+  }
+}
+
+class AppMainState extends State<AppMain> {
+  int navigationIndex = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          _buildNavBarItem(
+            FontAwesomeIcons.heart,
+            "디스커버",
+            active: FontAwesomeIcons.heartbeat,
+          ),
+          _buildNavBarItem(
+            FontAwesomeIcons.bookmark,
+            "나의주선",
+            active: FontAwesomeIcons.solidBookmark,
+          ),
+          _buildNavBarItem(
+            FontAwesomeIcons.comments,
+            "대화방",
+            active: FontAwesomeIcons.solidComments,
+          ),
+          _buildNavBarItem(
+            FontAwesomeIcons.user,
+            "커뮤니티",
+            active: FontAwesomeIcons.users,
+          ),
+          _buildNavBarItem(
+            FontAwesomeIcons.newspaper,
+            "꿀팁",
+            active: FontAwesomeIcons.bookOpen,
+          ),
+        ],
+        currentIndex: navigationIndex,
+        onTap: (idx) => setState(() => navigationIndex = idx),
+        type: BottomNavigationBarType.fixed,
+      ),
+      body: VanillaDiscoverMain(),
+    );
+  }
+
+  BottomNavigationBarItem _buildNavBarItem(IconData icon, String title,
+      {IconData active}) {
+    return BottomNavigationBarItem(
+      icon: Icon(
+        icon,
+        color: VanillaMainColor,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(color: VanillaMainColor),
+      ),
+      activeIcon: Icon(
+        active ?? icon,
+        color: VanillaMainColor,
+      ),
+    );
   }
 }
