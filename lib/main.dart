@@ -74,7 +74,7 @@ class AppMainState extends State<AppMain> {
         onTap: (idx) => setState(() => navigationIndex = idx),
         type: BottomNavigationBarType.fixed,
       ),
-      body: VanillaDiscoverMain(),
+      body: const VanillaDiscoverMain(),
     );
   }
 

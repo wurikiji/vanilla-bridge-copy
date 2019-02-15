@@ -42,7 +42,7 @@ class VanillaDrawer extends StatelessWidget {
             ),
             Divider(height: 1, color: Colors.grey),
             Expanded(
-              flex: 6,
+              flex: 5,
               child: _buildDrawerMenu(),
             ),
             Divider(height: 1, color: Colors.deepPurple[400]),
