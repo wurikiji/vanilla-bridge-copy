@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:vanilla_bridge_copy/screens/discover_main.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -30,9 +30,6 @@ class MyApp extends StatelessWidget {
 class AppMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    );
+    return Scaffold();
   }
 }
-
-

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+
 class VanillaDrawer extends StatelessWidget {
-  const VanillaDrawer() ;
+  const VanillaDrawer();
   @override
   Widget build(BuildContext context) {
     double drawerWidth = MediaQuery.of(context).size.width * 80 / 100;
+    double topPadding = MediaQuery.of(context).padding.top;
     return Drawer(
       child: Container(
+        padding: EdgeInsets.only(top: topPadding),
         width: drawerWidth,
         height: MediaQuery.of(context).size.height,
         child: Column(
@@ -52,42 +55,51 @@ class VanillaDrawer extends StatelessWidget {
       ),
     );
   }
+
   Widget _buildChangeMode(BuildContext context) {
-    return
-      GestureDetector(
-        onTap: () {
-          showDialog(context: context, builder: (context) {
-            return AlertDialog(
-              title: Text("회원 모드로 전환"),
-              content: Text(
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Text("회원 모드로 전환"),
+                content: Text(
                   "회원 모드로 전환하시겠습니까?",
                   style: TextStyle(color: Colors.grey, fontSize: 12.0),
-              ),
-              actions: <Widget>[
-                FlatButton(
-                  child: Text("취소", style: TextStyle(color: Colors.deepPurple[400])),
-                  onPressed: () => Navigator.of(context).pop(),
                 ),
-                FlatButton(
-                  child: Text("확인", style: TextStyle(color: Colors.deepPurple[400])),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              ],
-            );
-          });
-        },
-        child: Container(
-          alignment: Alignment.center,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Icon(Icons.autorenew, color: Colors.deepPurple[400], size: 16.0,),
-              Text("회원 모드로 전환", style: TextStyle(color: Colors.deepPurple[400])),
-            ],
-          ),
+                actions: <Widget>[
+                  FlatButton(
+                    child: Text("취소",
+                        style: TextStyle(color: Colors.deepPurple[400])),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                  FlatButton(
+                    child: Text("확인",
+                        style: TextStyle(color: Colors.deepPurple[400])),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                ],
+              );
+            });
+      },
+      child: Container(
+        alignment: Alignment.center,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Icon(
+              Icons.autorenew,
+              color: Colors.deepPurple[400],
+              size: 16.0,
+            ),
+            Text("회원 모드로 전환", style: TextStyle(color: Colors.deepPurple[400])),
+          ],
         ),
-      );
+      ),
+    );
   }
+
   Widget _buildDrawerMenu() {
     return Container(
       child: ListView(
@@ -101,6 +113,7 @@ class VanillaDrawer extends StatelessWidget {
       ),
     );
   }
+
   Widget _buildMenuItem(IconData icon, String title) {
     return InkWell(
       onTap: () {},
@@ -118,6 +131,7 @@ class VanillaDrawer extends StatelessWidget {
       ),
     );
   }
+
   Widget _buildBridgeCoinInfo() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -140,16 +154,19 @@ class VanillaDrawer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text("0B / 사용가능: 0B", style: TextStyle(fontSize: 12.0)),
-              Icon(Icons.keyboard_arrow_right, size: 16.0,),
+              Icon(
+                Icons.keyboard_arrow_right,
+                size: 16.0,
+              ),
             ],
           )
         ],
       ),
     );
   }
+
   Widget _buildAuthInfo() {
-    return 
-    Container(
+    return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -173,13 +190,15 @@ class VanillaDrawer extends StatelessWidget {
       ),
     );
   }
+
   Widget _buildProApply() {
     return Image.asset('images/apply_pro.png', fit: BoxFit.fill);
   }
+
   Widget _buildDrawerHeader(double width, BuildContext context) {
     return Container(
       padding: EdgeInsets.all(16.0),
-      decoration:  BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.deepPurple[100],
       ),
       child: Row(
@@ -207,7 +226,7 @@ class VanillaDrawer extends StatelessWidget {
                 ),
                 margin: EdgeInsets.only(bottom: 4.0),
               ),
-              Text("오기환님", style: TextStyle(fontSize: 12.0)),
+              Text("바닐라님", style: TextStyle(fontSize: 12.0)),
               Text("(바닐라브릿지)", style: TextStyle(fontSize: 10.0)),
             ],
           ),
@@ -217,6 +236,7 @@ class VanillaDrawer extends StatelessWidget {
       ),
     );
   }
+
   Widget _buildDrawerStatusRow(int flex) {
     return Row(
       mainAxisSize: MainAxisSize.max,
@@ -239,16 +259,22 @@ class VanillaDrawer extends StatelessWidget {
       ],
     );
   }
+
   Widget _buildStatusBox(String title, String desc) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        Text(title, style: TextStyle(fontSize: 10.0),),
+        Text(
+          title,
+          style: TextStyle(fontSize: 10.0),
+        ),
         SizedBox(height: 8.0),
-        Text(desc, style: TextStyle(color: Colors.deepPurple[400]),),
+        Text(
+          desc,
+          style: TextStyle(color: Colors.deepPurple[400]),
+        ),
       ],
     );
   }
 }
-
